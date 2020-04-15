@@ -1,0 +1,7 @@
+{
+  "name": "CartaVinhoAppIonic5",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
