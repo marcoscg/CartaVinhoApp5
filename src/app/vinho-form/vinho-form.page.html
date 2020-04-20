@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Vinho</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-slides [pager]="true" >
+        <ion-slide>
+          <div class="slide">
+            <img src="https://lwine.mar-developer.com/img/vinho/{{foto0}}" style="height: 250px;" [hidden]="hiddenImg0"/>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <img src="https://lwine.mar-developer.com/img/vinho/{{foto1}}" style="height: 250px;" [hidden]="hiddenImg1"/>
+        </ion-slide>
+      </ion-slides>      
+      <ion-card-title>{{ vinho?.nome }}</ion-card-title>
+      <ion-card-subtitle [hidden]="hiddenCard">
+        Código: #{{ vinho?.codigo }}
+      </ion-card-subtitle> 
+      <ion-card-subtitle [hidden]="hiddenCard">
+        Valor: {{ vinho?.valor | currency }}
+      </ion-card-subtitle>            
+    </ion-card-header>
+    <ion-card-content>
+      <div [innerHTML]="vinho?.descricao"></div>   
+    </ion-card-content>
+  </ion-card>
+</ion-content>

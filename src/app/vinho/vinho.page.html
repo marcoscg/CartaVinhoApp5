@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Vinho</ion-title>
+    <ion-button color="light" fill="clear" slot="end" (click)="doButtonSearch()">
+      <ion-icon name="search"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-searchbar *ngIf="!isHidden" placeholder="Search" debounce="1000" (ionChange)="doSearchChange($event)">
+  </ion-searchbar>
+  <ion-card *ngFor="let vinho of vinhos">
+    <div (click)="linkVinho(vinho.id)">
+      <ion-item class="ion-activated">
+        <ion-avatar slot="start">
+          <ion-img src="https://lwine.mar-developer.com/img/vinho/{{vinho.fotos[0].foto}}"></ion-img>
+        </ion-avatar>
+        <ion-label>{{ vinho.nome }}</ion-label>
+      </ion-item>
+      <ion-card-content>
+        <b>Pais:</b> {{ vinho.nacionalidade.pais }}
+        <b>Região:</b> {{ vinho.regiao }}
+        <b>Uva:</b> {{ vinho.uva.descricao }}
+        <b>Tipo:</b> {{ vinho.tipo.nome }}
+      </ion-card-content>
+      <ion-item>
+        <ion-label>#{{ vinho.codigo }}</ion-label>
+        <ion-badge slot="end">{{ vinho.valor | currency }}</ion-badge>
+      </ion-item>
+    </div>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,27 @@
+//
+
+
+// Page
+ionic g page "Login"
+ionic g page "Home"
+ionic g page "Vinho"
+ionic g page "VinhoForm"
+ionic g page "Tipo Vinho"
+ionic g page "Nacionalidade"
+ionic g page "Uva"
+ionic g page "Sobre"
+ionic g page "Busca"
+ionic g page "Tabs"
+
+// Service
+ionic g service login/shared/login
+ionic g service home/shared/home
+ionic g service vinho/shared/vinho
+ionic g service tipo-vinho/shared/tipo-vinho
+ionic g service nacionalidade/shared/nacionalidade
+ionic g service uva/shared/uva
+
+// Run Android
+ionic build
+npx cap copy
+npx cap open android

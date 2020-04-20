@@ -1,0 +1,45 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Wine</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="logo">
+    <ion-img src="assets/img/vinho1.png"></ion-img>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col offset-4 class="imgIcon">
+        <div class="center">
+          <ion-img src="assets/img/vinho.png" (click)="link('/vinho')"></ion-img>
+        </div>
+        <b>Vinho</b>
+      </ion-col>
+      <ion-col class="imgIcon">
+        <div class="center">
+          <ion-img src="assets/img/tipo.png" (click)="link('/tipo-vinho')"></ion-img>
+        </div>
+        <b>Tipo de Vinho</b>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col offset-4 class="imgIcon">
+        <div class="center">
+          <ion-img src="assets/img/globe.png" (click)="link('/nacionalidade')"></ion-img>
+        </div>
+        <b>País</b>
+      </ion-col>
+      <ion-col class="imgIcon">
+        <div class="center">
+          <ion-img src="assets/img/uva.png" (click)="link('/uva')"></ion-img>
+        </div>
+        <b>Uva</b>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Uva</ion-title>
+    <ion-button color="light" fill="clear" slot="end" (click)="doButtonSearch()">
+      <ion-icon name="search"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-searchbar *ngIf="!isHidden" placeholder="Search" debounce="1000" (ionChange)="doSearchChange($event)"></ion-searchbar>
+  <ion-card *ngFor="let uva of uvas">
+    <ion-item class="ion-activated" (click)="linkVinho(uva.id)">
+      <ion-icon name="leaf" slot="start"></ion-icon>
+      <ion-label>{{ uva.descricao }}</ion-label>
+      <ion-badge slot="end">{{ uva.qt_vinho }}</ion-badge>
+    </ion-item>
+  </ion-card>
+</ion-content>

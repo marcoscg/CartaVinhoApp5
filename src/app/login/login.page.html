@@ -1,0 +1,44 @@
+<ion-content>
+  <div class="login-logo">
+    <img src="assets/img/login.png" alt="Ionic logo" style="width: 50%;">
+    <p>Login de Acesso!</p>
+  </div>
+
+  <div class="center">
+    <form #loginForm="ngForm" novalidate>
+      <ion-list>
+        <ion-item>
+          <ion-label position="stacked" color="primary">Usuário</ion-label>
+          <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false"
+            autocapitalize="off" required>
+          </ion-input>
+        </ion-item>
+
+        <ion-text color="danger">
+          <p style="font-size: 10px;" [hidden]="username.valid || submitted == false" class="ion-padding-start">
+            Usuário é Obrigatório!
+          </p>
+        </ion-text>
+
+        <ion-item>
+          <ion-label position="stacked" color="primary">Senha</ion-label>
+          <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
+          </ion-input>
+        </ion-item>
+
+        <ion-text color="danger">
+          <p style="font-size: 10px;" [hidden]="password.valid || submitted == false" class="ion-padding-start">
+            Senha é Obrigatório!
+          </p>
+        </ion-text>
+      </ion-list>
+
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="onLogin(loginForm)" type="submit" expand="block">Acessar</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+
+</ion-content>

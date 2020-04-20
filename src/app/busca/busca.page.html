@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Pesquisar Vinho</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ 
+  <div class="center">
+
+    <ion-item>
+      <ion-label position="stacked">Tipo de Vinho</ion-label>
+      <ion-select class="select" [(ngModel)]="tipo">
+        <ion-select-option *ngFor="let tipoVinho of tipoVinhos" value="{{tipoVinho.id}}">{{tipoVinho.nome}}</ion-select-option>
+      </ion-select>
+      <ion-progress-bar type="indeterminate" [hidden]="hiddenVinho"></ion-progress-bar>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label position="stacked">Nacionalidade</ion-label>
+      <ion-select class="select" [(ngModel)]="nacionalidade">
+        <ion-select-option *ngFor="let nacionalidade of nacionalidades" value="{{nacionalidade.id}}">{{nacionalidade.pais}}</ion-select-option>
+      </ion-select>
+      <ion-progress-bar type="indeterminate" [hidden]="hiddenNacionalidade"></ion-progress-bar>
+    </ion-item>  
+
+    <ion-item>
+      <ion-label position="stacked">Uva</ion-label>
+      <ion-select class="select" [(ngModel)]="uva">
+        <ion-select-option *ngFor="let uva of uvas" value="{{uva.id}}">{{uva.descricao}}</ion-select-option>
+      </ion-select>
+      <ion-progress-bar type="indeterminate" [hidden]="hiddenUva"></ion-progress-bar>
+    </ion-item>  
+
+    <ion-item>
+      <ion-label position="stacked">Valor Mínimo</ion-label>
+      <ion-input [(ngModel)]="valormin"></ion-input>
+    </ion-item> 
+    
+    <ion-item>
+      <ion-label position="stacked">Valor Máximo</ion-label>
+      <ion-input [(ngModel)]="valormax"></ion-input>
+    </ion-item> 
+
+    <ion-button (click)="onPesquisar()" type="submit" expand="block">Pesquisar</ion-button>
+    <ion-button (click)="onLimpar()" type="submit" expand="block" color="danger">Limpar</ion-button> 
+
+  </div>  
+
+</ion-content>
